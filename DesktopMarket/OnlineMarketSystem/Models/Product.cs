@@ -15,7 +15,7 @@ public class Product
 
     public DateTime CreatedAt { get; set; }
     public DateTime? ModifiedAt { get; set; }
-    public DateTime? DeltedAt { get; set; }
+    public DateTime? DeletedAt { get; set; }
 
     public ICollection<OrderDetail> OrderDetails { get; set; }
     public ICollection<Review> Reviews { get; set; }

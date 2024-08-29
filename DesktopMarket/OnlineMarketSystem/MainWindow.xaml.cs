@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using OnlineMarketSystem.Views;
+using System.Windows;
+using System.Windows.Input;
 
 namespace OnlineMarketSystem
 {
@@ -10,6 +12,18 @@ namespace OnlineMarketSystem
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void SignUp_Click(object sender, MouseButtonEventArgs e)
+        {
+            LeftGrid.Content = new SignUp();
+        }
+
+        private void Sign_Click(object sender, RoutedEventArgs e)
+        {
+            var signIn = new MarketMainWindow();
+            signIn.Show();
+            Window.GetWindow(this).Close();
         }
     }
 }
