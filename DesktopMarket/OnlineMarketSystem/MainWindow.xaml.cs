@@ -23,7 +23,7 @@ namespace OnlineMarketSystem
         {
             var signIn = new MarketMainWindow();
             signIn.Show();
-            Window.GetWindow(this).Close();
+            GetWindow(this).Close();
         }
     }
 }

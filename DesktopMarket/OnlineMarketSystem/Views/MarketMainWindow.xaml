@@ -107,11 +107,17 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button                               
-                                Style="{StaticResource menuButton}">
+                            <Button Click="Categories_Click" Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="ShapeOutline" />
                                     <TextBlock Text="Categories" />
+                                </StackPanel>
+                            </Button>
+
+                            <Button Click="Customers_Click" Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="AccountMultipleOutline" />
+                                    <TextBlock Text="Customers" />
                                 </StackPanel>
                             </Button>
 

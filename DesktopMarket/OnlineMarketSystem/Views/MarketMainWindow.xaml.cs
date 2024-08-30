@@ -33,6 +33,16 @@ namespace OnlineMarketSystem.Views
             MainUserControl.Content = new ProductsView();
         }
 
+        private void Categories_Click(object sender, RoutedEventArgs e)
+        {
+            MainUserControl.Content = new CategoriesView();
+        }
+
+        private void Customers_Click(object sender, RoutedEventArgs e)
+        {
+            MainUserControl.Content = new CustomersView();
+        }
+
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             var logout = new MainWindow();

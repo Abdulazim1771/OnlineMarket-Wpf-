@@ -1,5 +1,6 @@
 ﻿using OnlineMarketSystem.Models;
 using OnlineMarketSystem.Services;
+using OnlineMarketSystem.Views.Dialogs;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
@@ -32,6 +33,12 @@ namespace OnlineMarketSystem.Views
             {
                 Products.Add(product);
             }
+        }
+
+        private void Add_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var window = new AddProduct();
+            window.Show();
         }
     }
 }
