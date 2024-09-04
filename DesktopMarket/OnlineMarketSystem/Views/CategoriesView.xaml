@@ -51,6 +51,7 @@
                     Width="150"
                     Margin="0,0,35,0"
                     HorizontalAlignment="Right"
+                    Click="Add_Click"
                     Style="{StaticResource Button}">
                     <StackPanel
                         HorizontalAlignment="Center"
