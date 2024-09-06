@@ -1,8 +1,5 @@
-﻿using OnlineMarketSystem.Models;
-using OnlineMarketSystem.Services;
-using OnlineMarketSystem.ViewModels;
+﻿using OnlineMarketSystem.ViewModels;
 using OnlineMarketSystem.Views.Dialogs;
-using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
 namespace OnlineMarketSystem.Views

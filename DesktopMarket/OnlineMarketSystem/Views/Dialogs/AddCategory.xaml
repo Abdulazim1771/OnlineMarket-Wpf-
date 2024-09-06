@@ -37,7 +37,8 @@
             Padding="10"
             VerticalAlignment="Center"
             md:HintAssist.Hint="Category Name"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+            Text="{Binding Name}" />
 
         <TextBox
             x:Name="inputProductDescription"
@@ -47,7 +48,8 @@
             Padding="10"
             VerticalAlignment="Center"
             md:HintAssist.Hint="Description"
-            Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+            Text="{Binding Description}" />
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -60,8 +62,10 @@
                 Height="35"
                 Margin="20,0,10,10"
                 Background="#569c5c"
-                FocusVisualStyle="{x:Null}">
-                <TextBox FontSize="13" Text="Save" />
+                Command="{Binding SaveCommand}"
+                Click="Save_Click"
+                Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
+                <Label Content="Save" FontSize="13" />
             </Button>
 
             <Button
@@ -70,8 +74,8 @@
                 Margin="10,0,20,10"
                 Background="#d65c76"
                 Click="Cancel_Click"
-                FocusVisualStyle="{x:Null}">
-                <TextBox FontSize="13" Text="Cancel" />
+                Style="{StaticResource MaterialDesignFlatSecondaryLightBgButton}">
+                <Label Content="Cancel" FontSize="13" />
             </Button>
         </Grid>
 

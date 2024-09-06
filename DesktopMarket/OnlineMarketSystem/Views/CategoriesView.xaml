@@ -77,7 +77,28 @@
                 Background="White"
                 CanUserAddRows="False"
                 Foreground="Black"
-                IsReadOnly="True">
+                IsReadOnly="True"
+                ItemsSource="{Binding Categories}">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="{Binding EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Foreground="#03A9F4" Kind="Pencil" />
+                            </MenuItem.Icon>
+                            <MenuItem.Header>
+                                <Label Content="Edit" Foreground="#03A9F4" />
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem Command="{Binding DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Foreground="#FF3B30" Kind="Delete" />
+                            </MenuItem.Icon>
+                            <MenuItem.Header>
+                                <Label Content="Delete" Foreground="#FF3B30" />
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
                 <DataGrid.Columns>
                     <DataGridTextColumn
                         Width="300"

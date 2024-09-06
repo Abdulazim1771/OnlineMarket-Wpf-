@@ -69,7 +69,7 @@ public class ProductsViewModel : BaseViewModel
 
         _productsService.Delete(product);
             MessageBox.Show(
-            $"Patient: {product.Name} {product.SKU} successfully deleted.",
+            $"Product: {product.Name} {product.SKU} successfully deleted.",
             "Success",
             MessageBoxButton.OK,
             MessageBoxImage.Information);

@@ -1,7 +1,5 @@
-﻿using OnlineMarketSystem.Models;
-using OnlineMarketSystem.Services;
+﻿using OnlineMarketSystem.ViewModels;
 using OnlineMarketSystem.Views.Dialogs;
-using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,28 +10,11 @@ namespace OnlineMarketSystem.Views
     /// </summary>
     public partial class CategoriesView : UserControl
     {
-        private readonly CategoriesService _categoriesService;
-        public ObservableCollection<Category> Categories;
-
         public CategoriesView()
         {
             InitializeComponent();
 
-            _categoriesService = new CategoriesService();
-            Categories = new ObservableCollection<Category>();
-
-            Load();
-            CategoriesDataGrid.ItemsSource = Categories;
-        }
-
-        void Load()
-        {
-            var categories = _categoriesService.GetCategories();
-            Categories.Clear();
-            foreach (var category in categories)
-            {
-                Categories.Add(category);
-            }
+            DataContext = new CategoriesViewModel();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
