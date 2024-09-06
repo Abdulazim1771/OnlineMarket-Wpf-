@@ -22,7 +22,8 @@ public class InventoriesService
 
         if(!string.IsNullOrEmpty(search))
         {
-            query = query.Where(x => x.Product.Name.Contains(search));
+            query = query.Where(x => x.Product.Name.Contains(search) || 
+            x.Product.SKU.Contains(search));
         }
 
         if(quantity is not null)

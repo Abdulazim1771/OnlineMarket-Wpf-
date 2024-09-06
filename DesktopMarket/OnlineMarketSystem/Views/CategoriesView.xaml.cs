@@ -2,6 +2,7 @@
 using OnlineMarketSystem.Services;
 using OnlineMarketSystem.Views.Dialogs;
 using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace OnlineMarketSystem.Views
@@ -35,7 +36,7 @@ namespace OnlineMarketSystem.Views
             }
         }
 
-        private void Add_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
             var window = new AddCategory();
             window.Show();

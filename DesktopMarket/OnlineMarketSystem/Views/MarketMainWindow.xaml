@@ -114,6 +114,13 @@
                                 </StackPanel>
                             </Button>
 
+                            <Button Click="Inventory_Click" Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="ListBox" />
+                                    <TextBlock Text="Inventory" />
+                                </StackPanel>
+                            </Button>
+
                             <Button Click="Customers_Click" Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="AccountMultipleOutline" />
@@ -181,8 +188,7 @@
                     <Icon:PackIconMaterial Kind="Bell" />
                 </Button>
 
-                <ContentControl x:Name="MainUserControl"
-                                Grid.Row="5"/>
+                <ContentControl x:Name="MainUserControl" Grid.Row="5" />
             </Grid>
 
         </Grid>
