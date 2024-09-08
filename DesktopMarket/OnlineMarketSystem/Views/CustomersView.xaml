@@ -10,93 +10,97 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </UserControl.Resources>
 
     <Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="9*" />
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <!--  Search Textbox  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="9*" />
+        </Grid.RowDefinitions>
 
-                <Grid
-                    Width="300"
-                    Margin="35,0,0,0"
-                    HorizontalAlignment="Left">
-                    <TextBlock
-                        Margin="20,0"
-                        VerticalAlignment="Center"
-                        Panel.ZIndex="1"
-                        Foreground="#b0b9c9"
-                        IsHitTestVisible="False"
-                        Text="Search here..."
-                        Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
-                    <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}" />
-                    <Icon:PackIconMaterial
-                        Width="15"
-                        Height="15"
-                        Margin="0,0,15,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Foreground="#b0b9c9"
-                        Kind="Magnify" />
-                </Grid>
+        <Grid Grid.Row="0">
+            <!--  Search Textbox  -->
 
+            <Grid
+                Width="300"
+                Margin="35,0,0,0"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Margin="20,0"
+                    VerticalAlignment="Center"
+                    Panel.ZIndex="1"
+                    Foreground="#b0b9c9"
+                    IsHitTestVisible="False"
+                    Text="Search here..."
+                    Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
+                <TextBox
+                    x:Name="txtSearch"
+                    Style="{StaticResource textboxSearch}"
+                    Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Icon:PackIconMaterial
+                    Width="15"
+                    Height="15"
+                    Margin="0,0,15,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Foreground="#b0b9c9"
+                    Kind="Magnify" />
             </Grid>
 
-            <DataGrid
-                x:Name="CustomersDataGrid"
-                Grid.Row="1"
-                Grid.RowSpan="4"
-                HorizontalAlignment="Center"
-                AutoGenerateColumns="False"
-                Background="White"
-                CanUserAddRows="False"
-                Foreground="Black"
-                IsReadOnly="True">
-                <DataGrid.Columns>
-                    <DataGridTextColumn
-                        Width="80"
-                        Binding="{Binding Id}"
-                        Foreground="Black"
-                        Header="Id" />
-                    <DataGridTextColumn
-                        Width="200"
-                        Binding="{Binding FirstName}"
-                        Foreground="Black"
-                        Header="FirstName" />
-                    <DataGridTextColumn
-                        Width="200"
-                        Binding="{Binding LastName}"
-                        Foreground="Black"
-                        Header="LastName" />
-                    <DataGridTextColumn
-                        Width="220"
-                        Binding="{Binding Email}"
-                        Foreground="Black"
-                        Header="Email" />
-                    <DataGridTextColumn
-                        Width="200"
-                        Binding="{Binding Phone}"
-                        Foreground="Black"
-                        Header="Phone" />
-                    <DataGridTextColumn
-                        Width="160"
-                        Binding="{Binding CreatedAt, StringFormat='{}{0:dd-MMM-yyyy}'}"
-                        Foreground="Black"
-                        Header="Created time" />
-                    <DataGridTextColumn
-                        Width="160"
-                        Binding="{Binding ModifiedAt, StringFormat='{}{0:dd-MMM-yyyy}'}"
-                        Foreground="Black"
-                        Header="Modified time" />
-                </DataGrid.Columns>
-            </DataGrid>
-
         </Grid>
+
+        <DataGrid
+            x:Name="CustomersDataGrid"
+            Grid.Row="1"
+            Grid.RowSpan="4"
+            HorizontalAlignment="Center"
+            AutoGenerateColumns="False"
+            Background="White"
+            CanUserAddRows="False"
+            Foreground="Black"
+            IsReadOnly="True"
+            ItemsSource="{Binding Customers}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="80"
+                    Binding="{Binding Id}"
+                    Foreground="Black"
+                    Header="Id" />
+                <DataGridTextColumn
+                    Width="200"
+                    Binding="{Binding FirstName}"
+                    Foreground="Black"
+                    Header="FirstName" />
+                <DataGridTextColumn
+                    Width="200"
+                    Binding="{Binding LastName}"
+                    Foreground="Black"
+                    Header="LastName" />
+                <DataGridTextColumn
+                    Width="220"
+                    Binding="{Binding Email}"
+                    Foreground="Black"
+                    Header="Email" />
+                <DataGridTextColumn
+                    Width="200"
+                    Binding="{Binding Phone}"
+                    Foreground="Black"
+                    Header="Phone" />
+                <DataGridTextColumn
+                    Width="160"
+                    Binding="{Binding CreatedAt, StringFormat='{}{0:dd-MMM-yyyy}'}"
+                    Foreground="Black"
+                    Header="Created time" />
+                <DataGridTextColumn
+                    Width="160"
+                    Binding="{Binding ModifiedAt, StringFormat='{}{0:dd-MMM-yyyy}'}"
+                    Foreground="Black"
+                    Header="Modified time" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
+
 </UserControl>

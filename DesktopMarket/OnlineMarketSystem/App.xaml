@@ -75,7 +75,7 @@
 
             <Style x:Key="textboxSearch" TargetType="TextBox">
                 <Setter Property="Background" Value="AliceBlue" />
-                <Setter Property="Foreground" Value="#b0b9c9" />
+                <Setter Property="Foreground" Value="#393b3a" />
                 <Setter Property="BorderThickness" Value="0" />
                 <Setter Property="FontSize" Value="12" />
                 <Setter Property="Padding" Value="15,10" />

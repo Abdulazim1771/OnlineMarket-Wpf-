@@ -36,7 +36,10 @@
                         IsHitTestVisible="False"
                         Text="Search here..."
                         Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}" />
-                    <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}" />
+                    <TextBox
+                        x:Name="txtSearch"
+                        Style="{StaticResource textboxSearch}"
+                        Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <Icon:PackIconMaterial
                         Width="15"
                         Height="15"

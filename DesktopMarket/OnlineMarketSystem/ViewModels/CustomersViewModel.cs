@@ -26,6 +26,19 @@ public class CustomersViewModel : BaseViewModel
     public CustomersViewModel()
     {
         _customersService = new();
+        Customers = [];
+
+        Load();
+    }
+
+    private void Load()
+    {
+        var customers = _customersService.GetCustomers();
+
+        foreach (var customer in customers)
+        {
+            Customers.Add(customer);
+        }
     }
 
     private void SearchCustomers(string searchText)

@@ -13,6 +13,11 @@
     Style="{StaticResource MaterialDesignWindow}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+
+    <Window.DataContext>
+        <local:AddProduct />
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -41,6 +46,7 @@
             Padding="10"
             VerticalAlignment="Center"
             md:HintAssist.Hint="Product Name"
+            Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" />
 
         <TextBox
@@ -51,6 +57,7 @@
             Padding="10"
             VerticalAlignment="Center"
             md:HintAssist.Hint="Description"
+            Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" />
 
         <TextBox
@@ -61,6 +68,7 @@
             Padding="10"
             VerticalAlignment="Center"
             md:HintAssist.Hint="SKU"
+            Text="{Binding SKU, UpdateSourceTrigger=PropertyChanged}"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" />
 
         <TextBox
@@ -71,6 +79,7 @@
             Padding="10"
             VerticalAlignment="Center"
             md:HintAssist.Hint="Unit price"
+            Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" />
 
         <ComboBox
@@ -79,19 +88,24 @@
             Height="40"
             Margin="20,0"
             Padding="10"
-            Style="{StaticResource MaterialDesignOutlinedComboBox}"
-            ItemsSource="{Binding Categories}"
             VerticalAlignment="Center"
-            md:HintAssist.Hint="Choose cateegory" />
+            md:HintAssist.Hint="Choose cateegory"
+            SelectedValuePath="Id"
+            DisplayMemberPath="Name"
+            SelectedItem="{Binding SelectedCategory}"
+            ItemsSource="{Binding Categories}"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}" />
 
         <TextBox
             x:Name="inputProductQuantity"
             Grid.Row="6"
             Height="40"
             Margin="20,0"
+            TextInput="{Binding NumberOfProducts, UpdateSourceTrigger=PropertyChanged}"
             Padding="10"
             VerticalAlignment="Center"
             md:HintAssist.Hint="Number of products"
+            Text="{Binding Quantity}"
             Style="{StaticResource MaterialDesignOutlinedTextBox}" />
 
         <Grid Grid.Row="7">
