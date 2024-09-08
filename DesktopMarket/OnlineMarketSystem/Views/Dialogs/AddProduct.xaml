@@ -79,8 +79,10 @@
             Height="40"
             Margin="20,0"
             Padding="10"
+            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+            ItemsSource="{Binding Categories}"
             VerticalAlignment="Center"
-            md:HintAssist.Hint="Unit price" />
+            md:HintAssist.Hint="Choose cateegory" />
 
         <TextBox
             x:Name="inputProductQuantity"
@@ -103,8 +105,10 @@
                 Height="35"
                 Margin="20,0,10,10"
                 Background="#569c5c"
-                FocusVisualStyle="{x:Null}">
-                <TextBox FontSize="13" Text="Save" />
+                Click="Save_Click"
+                Command="{Binding SaveCommand}"
+                Style="{StaticResource MaterialDesignFlatSecondaryLightButton}">
+                <Label Content="Save" FontSize="13" />
             </Button>
 
             <Button
@@ -113,8 +117,8 @@
                 Margin="10,0,20,10"
                 Background="#d65c76"
                 Click="Cancel_Click"
-                FocusVisualStyle="{x:Null}">
-                <TextBox FontSize="13" Text="Cancel" />
+                Style="{StaticResource MaterialDesignFlatSecondaryLightBgButton}">
+                <Label Content="Cancel" FontSize="13" />
             </Button>
 
         </Grid>

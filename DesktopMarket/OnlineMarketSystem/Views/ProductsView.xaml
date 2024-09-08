@@ -56,9 +56,10 @@
                     materialDesign:TextFieldAssist.HasClearButton="True"
                     Background="AliceBlue"
                     FontSize="12"
-                    Foreground="#b0b9c9"
+                    Foreground="Black"
                     IsEditable="True"
-                    Style="{StaticResource MaterialDesignOutlinedComboBox}" />
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    ItemsSource="{Binding Categories}"/>
 
                 <Button
                     Width="150"
@@ -90,7 +91,8 @@
                 Background="White"
                 CanUserAddRows="False"
                 Foreground="Black"
-                IsReadOnly="True">
+                IsReadOnly="True"
+                ItemsSource="{Binding Products}">
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem Command="{Binding EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItem}">

@@ -13,7 +13,7 @@ public class CategoriesService
         _context = new OnlineMarketDbContext();
     }
 
-    public List<Category> GetCategories(string search = "")
+    public List<Category> GetCategories(string? search = "")
     {
         var query = _context.Categories
             .AsNoTracking()

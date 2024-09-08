@@ -1,8 +1,6 @@
 ﻿using MvvmHelpers.Commands;
 using OnlineMarketSystem.Models;
 using OnlineMarketSystem.Services;
-using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace OnlineMarketSystem.ViewModels;

@@ -11,6 +11,7 @@ namespace OnlineMarketSystem.ViewModels;
 public class ProductsViewModel : BaseViewModel
 {
     private readonly ProductsService _productsService;
+    private readonly CategoriesService _categoriesService;
 	private string _searchText;
 
 	public string SearchText
@@ -28,13 +29,35 @@ public class ProductsViewModel : BaseViewModel
     public ICommand DeleteCommand { get; }
 
     public ObservableCollection<Product> Products { get; }
+    public ObservableCollection<Category> Categories { get; }
 
 	public ProductsViewModel()
 	{
 		_productsService = new();
+        _categoriesService = new();
+        Products = [];
+        Categories = [];
 
         EditCommand = new Command<Product>(OnEdit);
         DeleteCommand = new Command<Product>(OnDelete);
+
+        Load();
+    }
+
+    private void Load()
+    {
+        var products = _productsService.GetProducts();
+        var categories = _categoriesService.GetCategories();
+
+        foreach (var product in products)
+        {
+            Products.Add(product);
+        }
+
+        foreach(var category in categories)
+        {
+            Categories.Add(category);
+        }
     }
 
 	private void SearchProducts(string searchText)

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using OnlineMarketSystem.ViewModels.Dialogs;
+using System.Windows;
 
 namespace OnlineMarketSystem.Views.Dialogs
 {
@@ -10,11 +11,18 @@ namespace OnlineMarketSystem.Views.Dialogs
         public AddProduct()
         {
             InitializeComponent();
+
+            DataContext = new ProductDialogViewModel();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            Window.GetWindow(this).Close();
+            Close();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
