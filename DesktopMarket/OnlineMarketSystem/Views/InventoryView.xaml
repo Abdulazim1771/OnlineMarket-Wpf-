@@ -79,7 +79,8 @@
                 Background="White"
                 CanUserAddRows="False"
                 Foreground="Black"
-                IsReadOnly="True">
+                IsReadOnly="True"
+                ItemsSource="{Binding Inventories}">
                 <DataGrid.Columns>
                     <DataGridTextColumn
                         Width="80"
@@ -95,7 +96,7 @@
                         Width="280"
                         Binding="{Binding Quantity}"
                         Foreground="Black"
-                        Header="Name" />
+                        Header="Number of products" />
                     <DataGridTextColumn
                         Width="280"
                         Binding="{Binding Product.Name}"

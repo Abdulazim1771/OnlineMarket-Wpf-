@@ -1,99 +1,23 @@
-﻿using OnlineMarketSystem.Models;
+﻿using MvvmHelpers.Commands;
+using OnlineMarketSystem.Models;
 using OnlineMarketSystem.Services;
-using OnlineMarketSystem.ViewModels.Extensions;
-using System.ComponentModel;
 using System.Windows.Input;
 
 namespace OnlineMarketSystem.ViewModels.Dialogs;
 
-public class ProductDialogViewModel : INotifyPropertyChanged
+public class ProductDialogViewModel 
 {
-    private readonly ProductsService _productsService;
     private readonly CategoriesService _categoriesService;
+    //private readonly ProductsService _productsService;
+    //private readonly InventoriesService _inventoriesService;
 
-    private string _productName;
-    public string ProductName
-    {
-        get => _productName;
-        set
-        {
-            if (_productName != value)
-            {
-                _productName = value;
-                OnPropertyChanged(nameof(ProductName));
-            }
-        }
-    }
-
-    private string _description;
-    public string Description
-    {
-        get => _description;
-        set
-        {
-            if (_description != value)
-            {
-                _description = value;
-                OnPropertyChanged(nameof(Description));
-            }
-        }
-    }
-
-    private string _SKU;
-    public string SKU
-    {
-        get => _SKU;
-        set
-        {
-            if (_SKU != value)
-            {
-                _SKU = value;
-                OnPropertyChanged(nameof(SKU));
-            }
-        }
-    }
-
-    private decimal _price;
-    public decimal Price 
-    { 
-        get => _price;
-        set
-        {
-            if (_price != value)
-            {
-                _price = value;
-                OnPropertyChanged(nameof(Price));
-            }
-        } 
-    }
-
-    private Category _selectedCategory;
-    public Category SelectedCategory 
-    { 
-        get => _selectedCategory; 
-        set
-        {
-            if(_selectedCategory != value)
-            {
-                _selectedCategory = value;
-                OnPropertyChanged(nameof(SelectedCategory));
-            }
-        } 
-    }
-
-    private int _numberOfProducts;
-    public int NumberOfProducts 
-    { 
-        get => _numberOfProducts; 
-        set
-        {
-            if (_numberOfProducts != value)
-            {
-                _numberOfProducts = value;
-                OnPropertyChanged(nameof(NumberOfProducts));
-            }
-        }
-    }
+    //public string ProductName { get; set; }
+    //public string Description { get; set; }
+    //public string SKU { get; set; }
+    //public decimal Price { get; set; }
+    //public int CategoryId { get; set; }
+    //public int Quantity { get; set; }
+    //public DateTime CreatedAt { get; set; }
 
     public List<Category> Categories { get; }
 
@@ -102,10 +26,11 @@ public class ProductDialogViewModel : INotifyPropertyChanged
     {
         Categories = [];
 
-        SaveCommand = new RelayCommand(OnSave);
+        SaveCommand = new Command(OnSave);
 
-        _productsService = new();
         _categoriesService = new();
+        //_productsService = new();
+        //_inventoriesService = new();
 
         Load();
     }
@@ -122,22 +47,53 @@ public class ProductDialogViewModel : INotifyPropertyChanged
 
     private void OnSave()
     {
-        var product = new Product()
-        {
-            Name = ProductName,
-            Description = Description,
-            SKU = SKU,
-            Price = Price,
-            CategoryId = SelectedCategory?.Id ?? 0,  // Handling null category
-            Inventory = new Inventory { Quantity = NumberOfProducts }
-        };
-
-        _productsService.Create(product);
-    }
-
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        
     }
 }
+
+//if (decimal.TryParse(inputProductPrice.Text, out decimal price))
+//{
+//    MessageBox.Show(
+//        "Please enter a valid price.", "Error",
+//        MessageBoxButton.OK, MessageBoxImage.Error);
+//    return;
+//}
+
+//if (int.TryParse(inputProductQuantity.Text, out int quantity))
+//{
+//    MessageBox.Show(
+//        "Please enter a valid quantity.", "Error",
+//        MessageBoxButton.OK, MessageBoxImage.Error);
+//    return;
+//}
+
+//if (string.IsNullOrEmpty(inputProductName.Text) ||
+//    string.IsNullOrEmpty(inputProductSKU.Text) ||
+//    string.IsNullOrEmpty(inputProductPrice.Text) ||
+//    string.IsNullOrEmpty(inputProductQuantity.Text))
+//{
+//    MessageBox.Show(
+//        "You must fill all information correctly", "Error",
+//        MessageBoxButton.OK, MessageBoxImage.Error);
+//    return;
+//}
+
+//var product = new Product()
+//{
+//    Name = inputProductName.Text,
+//    Description = inputProductDescription.Text,
+//    SKU = inputProductSKU.Text,
+//    Price = price,
+//    CategoryId = (int)categoryCombobox.SelectedValue,
+
+//};
+
+//var inventory = new Inventory()
+//{
+//    Quantity = quantity,
+//    ProductId = product.Id,
+//    CreatedAt = DateTime.Now,
+//};
+
+//_productsService.Create(product);
+//_inventoriesService.Create(inventory);
