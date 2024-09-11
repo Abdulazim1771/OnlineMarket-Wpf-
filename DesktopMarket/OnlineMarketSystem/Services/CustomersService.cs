@@ -35,11 +35,11 @@ public class CustomersService
     public Customer? GetCustomerById(int id)
         => _context.Customers.FirstOrDefault(x => x.Id == id);
 
-    //public void Create(Customer customer)
-    //{
-    //    _context.Customers.Add(customer);
-    //    _context.SaveChanges();
-    //}
+    public void Create(Customer customer)
+    {
+        _context.Customers.Add(customer);
+        _context.SaveChanges();
+    }
 
     //public void Update(Customer customer)
     //{
