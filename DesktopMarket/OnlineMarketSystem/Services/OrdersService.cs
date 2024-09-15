@@ -17,6 +17,7 @@ public class OrdersService
     {
         var query = _context.Orders
             .Include(o => o.OrderDetails)
+            .ThenInclude(o => o.Product)
             .Include(c => c.Customer)
             .AsNoTracking()
             .AsQueryable();

@@ -128,7 +128,7 @@
                                 </StackPanel>
                             </Button>
 
-                            <Button Style="{StaticResource menuButton}">
+                            <Button Click="Orders_Click" Style="{StaticResource menuButton}">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="TruckCargoContainer" />
                                     <TextBlock Text="Orders" />

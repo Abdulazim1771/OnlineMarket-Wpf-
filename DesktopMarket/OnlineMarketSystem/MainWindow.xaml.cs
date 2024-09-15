@@ -1,6 +1,5 @@
 ﻿using OnlineMarketSystem.Data;
 using OnlineMarketSystem.Models;
-using OnlineMarketSystem.Services;
 using OnlineMarketSystem.Views;
 using System.Windows;
 using System.Windows.Input;
@@ -13,11 +12,11 @@ namespace OnlineMarketSystem
     public partial class MainWindow : Window
     {
         //private readonly CustomersService _customersService;
-        //private readonly OnlineMarketDbContext _context;
+        private readonly OnlineMarketDbContext _context;
         public MainWindow()
         {
             //_customersService = new();
-            //_context = new();
+            _context = new();
 
             InitializeComponent();
 
@@ -59,10 +58,12 @@ namespace OnlineMarketSystem
             {
                 CustomerId = 1,
                 TotalPrice = 60,
-                OrderDate = DateTime.Now
+                OrderDate = DateTime.Now,
             };
 
-            //_context.Orders.Add(order);
+
+            _context.Orders.Add(order);
+            _context.SaveChanges();
 
             var orderDetails = new OrderDetail()
             {
@@ -72,7 +73,8 @@ namespace OnlineMarketSystem
                 UnitPrice = 15,
             };
 
-            //_context.OrderDetails.Add(orderDetails);
+            _context.OrderDetails.Add(orderDetails);
+            _context.SaveChanges();
         }
     }
 }

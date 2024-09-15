@@ -37,6 +37,11 @@ namespace OnlineMarketSystem.Views
             MainUserControl.Content = new CustomersView();
         }
 
+        private void Orders_Click(object sender, RoutedEventArgs e)
+        {
+            MainUserControl.Content = new OrdersView();
+        }
+
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             var logout = new MainWindow();
