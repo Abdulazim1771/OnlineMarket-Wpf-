@@ -11,17 +11,9 @@ namespace OnlineMarketSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        //private readonly CustomersService _customersService;
-        private readonly OnlineMarketDbContext _context;
         public MainWindow()
         {
-            //_customersService = new();
-            _context = new();
-
             InitializeComponent();
-
-            //CreateCustomer();
-            //CreateOrder();
         }
 
         private void SignUp_Click(object sender, MouseButtonEventArgs e)
@@ -36,22 +28,6 @@ namespace OnlineMarketSystem
             GetWindow(this).Close();
         }
 
-        private void CreateCustomer()
-        {
-            var customer = new Customer()
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                Email = "JohnDoe@gmail.com",
-                Password = "*********",
-                Phone = "+1(598)5557856",
-                CreatedAt = DateTime.Now,
-                ModifiedAt = null
-            };
-
-            //_customersService.Create(customer);
-        }
-
         private void CreateOrder()
         {
             var order = new Order()
@@ -62,8 +38,8 @@ namespace OnlineMarketSystem
             };
 
 
-            _context.Orders.Add(order);
-            _context.SaveChanges();
+            //_context.Orders.Add(order);
+            //_context.SaveChanges();
 
             var orderDetails = new OrderDetail()
             {
@@ -73,8 +49,8 @@ namespace OnlineMarketSystem
                 UnitPrice = 15,
             };
 
-            _context.OrderDetails.Add(orderDetails);
-            _context.SaveChanges();
+            //_context.OrderDetails.Add(orderDetails);
+            //_context.SaveChanges();
         }
     }
 }
